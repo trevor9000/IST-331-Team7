@@ -47,22 +47,18 @@ list-style: none;
             }
 
             #keyboard .number {
-			background: #99d2f2;
+			background: #69707e;
 			}
 			
-			#keyboard .special {
-				background: #7ab648;
-			}
-
 			#keyboard .delete, #keyboard .clear {
-				background: #ffdf71;
+				background: #d33710;
 				width: 40px;
 			}
             #keyboard .capslock {
             width: 80px;
             }
             #keyboard .return {
-	        background: #c92d39;
+	        background: #32db10;
             width: 80px;
             }
             #keyboard .left-shift {
@@ -71,6 +67,7 @@ list-style: none;
             #keyboard .right-shift {
             width: 109px;
             }
+            
         .lastitem {
         margin-right: 0;
         }
@@ -78,7 +75,7 @@ list-style: none;
         text-transform: uppercase;
         }
         #keyboard .space {
-        background: #ffdf71;
+        background: #ffffff;
         width: 280px;
         }
         .on {
