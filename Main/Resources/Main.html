@@ -167,6 +167,10 @@ html, body {
 .auto-style1 {
 	margin-left: 250;
 }
+.container{
+	box-sizing: border-box;
+	background-color: wheat;
+}
 </style>
 
 
@@ -178,11 +182,13 @@ html, body {
 		style="position: absolute; left: 650px; top: 150px; width: 478px; height: 400px; z-index: 1; float: right">
 		<ul id="keyboard0">
 			<li class="symbol">
+				
 				<div>
 					<textarea id="write" name="S1"
 						style="height: 300px; width: 465px; font-size: 12px; font-family: Arial;"
 						cols="" rows=""></textarea>
 				</div> &nbsp;
+				<div class="container" style="width: 470px; height: 230px; position: absolute; top: 350px; left: 0px;">
 				<ul id="keyboard">
 
 					<li class="letter">A</li>
@@ -235,8 +241,9 @@ html, body {
 						&nbsp;
 					</li>
 					<li class="return lastitem">ENTER</li>
-
-				</ul> <span class="on">+</span>
+				
+				</ul></div> <span class="on">+</span>
+				
 			</li>
 
 		</ul>
