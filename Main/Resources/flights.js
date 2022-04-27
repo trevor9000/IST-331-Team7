@@ -32,11 +32,11 @@ function sleep(ms) {
 
  function myMove() { 
   var elem = document.getElementById("animate");   
-  var pos = 76; 
+  var pos = 240; 
 
    function movediv()
    {
-    if (pos == 166) { 
+    if (pos == 170) { 
       document.getElementById('animate').style.display='none';  
     } 
     else 
@@ -55,13 +55,13 @@ function sleep(ms) {
 var id2=null;
  function myMove2() { 
   var elem = document.getElementById("animate2");   
-  var pos2 = 96; 
+  var pos2 = 220; 
    function movediv(){
-    if (pos2 == 166) { 
+    if (pos2 == 170) { 
       document.getElementById('animate2').style.display='none';  
     } else {
 	
-      pos2+=10;
+      pos2-=5;
       elem.style.left = pos2 + "px"; 
       sleep(speed).then(() => {
 	  requestAnimationFrame(movediv)
@@ -77,7 +77,7 @@ var id2=null;
 
 function myMove3() { 
   var elem = document.getElementById("animate3");   
-  var pos3 = 86; 
+  var pos3 = 446; 
 
    function movediv()
    {
@@ -86,7 +86,7 @@ function myMove3() {
     } 
     else 
     {
-      pos3+=10;
+      pos3-=10;
        elem.style.top = pos3 + "px"; 
        elem.style.left = pos3 + "px"; ; 
 
@@ -98,7 +98,7 @@ function myMove3() {
 
 function myMove4() { 
   var elem = document.getElementById("animate4");   
-  var pos4 = 96; 
+  var pos4 = 566; 
 
    function movediv()
    {
@@ -107,7 +107,7 @@ function myMove4() {
     } 
     else 
     {
-      pos4+=10;
+      pos4-=10;
        elem.style.top = pos4 + "px"; 
        elem.style.left = pos4 + "px"; ; 
 
@@ -119,16 +119,16 @@ function myMove4() {
 
 function myMove5() { 
   var elem = document.getElementById("animate5");   
-  var pos5 = 36; 
+  var pos5 = 320; 
 
    function movediv()
    {
-    if (pos5 == 166) { 
+    if (pos5 == 330) { 
       document.getElementById('animate5').style.display='none';  
     } 
     else 
     {
-      pos5+=10;
+      pos5+=1;
        elem.style.top = pos5 + "px"; 
        elem.style.left = pos5 + "px"; ; 
 
@@ -139,16 +139,16 @@ function myMove5() {
 }
 function myMove6() { 
   var elem = document.getElementById("animate6");   
-  var pos6 = 166; 
+  var pos6 = 680; 
 
    function movediv()
    {
-    if (pos6 == 196) { 
+    if (pos6 == 650) { 
       document.getElementById('animate6').style.display='none';  
     } 
     else 
     {
-      pos6+=10;
+      pos6-=2;
        elem.style.top = pos6 + "px"; 
        elem.style.left = pos6 + "px"; ; 
 
@@ -159,16 +159,16 @@ function myMove6() {
 }
 function myMove7() { 
   var elem = document.getElementById("animate7");   
-  var pos7 = 166; 
+  var pos7 = 350; 
 
    function movediv()
    {
-    if (pos7 == 56) { 
+    if (pos7 == 300) { 
       document.getElementById('animate7').style.display='none';  
     } 
     else 
     {
-      pos7-=10;
+      pos7-=5;
        elem.style.top = pos7 + "px"; 
        elem.style.left = pos7 + "px"; ; 
 
@@ -179,16 +179,16 @@ function myMove7() {
 }
 function myMove8() { 
   var elem = document.getElementById("animate8");   
-  var pos8 = 166; 
+  var pos8 = 588; 
 
    function movediv()
    {
-    if (pos8 == 46) { 
+    if (pos8 == 488) { 
       document.getElementById('animate8').style.display='none';  
     } 
     else 
     {
-      pos8-=20;
+      pos8-=2;
        elem.style.top = pos8 + "px"; 
        elem.style.left = pos8 + "px"; ; 
 
@@ -199,16 +199,16 @@ function myMove8() {
 }
 function myMove9() { 
   var elem = document.getElementById("animate9");   
-  var pos9 = 166; 
+  var pos9 = 466; 
 
    function movediv()
    {
-    if (pos9 == 66) { 
+    if (pos9 == 566) { 
       document.getElementById('animate9').style.display='none';  
     } 
     else 
     {
-      pos9-=20;
+      pos9+=20;
        elem.style.top = pos9 + "px"; 
        elem.style.left = pos9 + "px"; ; 
 
@@ -239,11 +239,11 @@ function myMove10() {
 }
 function myMove11() { 
   var elem = document.getElementById("animate11");   
-  var pos11 = 100; 
+  var pos11 = 420; 
 
    function movediv()
    {
-    if (pos11 == 150) { 
+    if (pos11 == 500) { 
       document.getElementById('animate11').style.display='none';  
     } 
     else 
@@ -260,7 +260,7 @@ function myMove11() {
 
 function myMove12() { 
   var elem = document.getElementById("animate12");   
-  var pos12 = 10; 
+  var pos12 = 60; 
 
    function movediv()
    {
@@ -269,7 +269,7 @@ function myMove12() {
     } 
     else 
     {
-      pos12 +=10;
+      pos12 +=20;
        elem.style.top = pos12 + "px"; 
        elem.style.left = pos12 + "px"; ; 
 
@@ -280,16 +280,16 @@ function myMove12() {
 }
 function myMove13() { 
   var elem = document.getElementById("animate13");   
-  var pos13 = 20; 
+  var pos13 = 260; 
 
    function movediv()
    {
-    if (pos13 == 330) { 
+    if (pos13 == 10) { 
       document.getElementById('animate13').style.display='none';  
     } 
     else 
     {
-      pos13 +=10;
+      pos13 -=10;
        elem.style.top = pos13 + "px"; 
        elem.style.left = pos13 + "px"; ; 
 
@@ -300,16 +300,16 @@ function myMove13() {
 }
 function myMove14() { 
   var elem = document.getElementById("animate14");   
-  var pos14 = 30; 
+  var pos14 = 460; 
 
    function movediv()
    {
-    if (pos14 == 340) { 
+    if (pos14 == 5) { 
       document.getElementById('animate14').style.display='none';  
     } 
     else 
     {
-      pos14 +=10;
+      pos14 -=10;
        elem.style.top = pos14 + "px"; 
        elem.style.left = pos14 + "px"; ; 
 
@@ -320,16 +320,16 @@ function myMove14() {
 }
 function myMove15() { 
   var elem = document.getElementById("animate15");   
-  var pos15 = 30; 
+  var pos15 = 360; 
 
    function movediv()
    {
-    if (pos15 == 360) { 
+    if (pos15 == 0) { 
       document.getElementById('animate15').style.display='none';  
     } 
     else 
     {
-      pos15 +=10;
+      pos15 -=15;
        elem.style.top = pos15 + "px"; 
        elem.style.left = pos15 + "px"; ; 
 
