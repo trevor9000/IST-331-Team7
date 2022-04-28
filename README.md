@@ -20,3 +20,8 @@ http://ist331-simfast.mywebcommunity.org/
 
 
 5 enroute:
+1) N536SP
+2) AAL785S
+3) AAL7165
+4) AAl8123
+5) RDU6450

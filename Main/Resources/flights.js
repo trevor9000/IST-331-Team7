@@ -64,6 +64,7 @@ var dataBlockInterval;
     }
 
 // Calc new x and new y: https://math.stackexchange.com/questions/143932/calculate-point-given-x-y-angle-and-distance
+// Used for animations
 function frame() {
     var flights = document.querySelectorAll(".flight:not(.flight-not-ready)");
 
