@@ -1,3 +1,214 @@
+
+    // Timer 
+var timerRate = 1;
+var phlX = 310;
+var phlY = 530;
+var totalSeconds = 0;
+var totalMs = 0;
+var baseFreq = 1000; 
+var timerInterval;
+
+    // Data block
+
+var animationInterval;
+var dataBlockInterval;
+
+    // Set time 
+    // adapated https://stackoverflow.com/questions/65448862/html-retern-null-count-up-time
+    function setTime() {
+        totalMs += baseFreq / timerRate;
+    
+        var flights = document.getElementsByClassName("flight-not-ready");
+        for(var i = 0; i < flights.length; i++) {
+            if (flights[0].getAttribute("data-startTime") / timerRate <= totalMs) {
+                document.getElementById(`list_${flights[0].id}`).remove();
+                flights[0].classList.remove("flight-not-ready");
+            }
+        }
+    
+        var hoursLabel = document.getElementById("hours");
+        var minutesLabel = document.getElementById("minutes");
+        var secondsLabel = document.getElementById("seconds");
+    
+        ++totalSeconds;
+        secondsLabel.innerHTML = pad(totalSeconds % 60);
+        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+        hoursLabel.innerHTML = pad(parseInt(totalSeconds / 60 / 60));
+    }
+
+    // tested working timer https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
+    function pad(val) {
+        var valString = val + "";
+        if (valString.length < 2) {
+            return "0" + valString;
+        } else {
+            return valString;
+        }
+    }
+
+    // Rate, Start, Stop
+    function changeRate() {
+        if(!animationInterval)
+            timerRate = document.getElementById('rate').value;
+    }
+    
+    function startSimulation() {
+        if(!animationInterval) {
+            timerInterval = setInterval(setTime, baseFreq / timerRate);
+            animationInterval = setInterval(frame, baseFreq / timerRate);
+            dataBlockInterval = setInterval(toggleDataBlock, 2000);
+        }
+    }
+    function resetSimulation() {
+        location.reload();
+    }
+
+// Calc new x and new y: https://math.stackexchange.com/questions/143932/calculate-point-given-x-y-angle-and-distance
+function frame() {
+    var flights = document.querySelectorAll(".flight:not(.flight-not-ready)");
+
+    for(var i = 0; i < flights.length; i++) {
+        flights[i].style.position = "absolute";
+
+        var degrees = flights[i].getAttribute('data-heading');
+        var rect = flights[i].getBoundingClientRect();
+
+        var posX = rect.left + window.scrollX;
+        var posY = rect.top + window.scrollY;
+
+        if ((flights[i].getAttribute("data-endPhl") === "true" && posX <= phlX + 14 && posX >= phlX && posY <= phlY + 14 && posY >= phlY) || (posX < 0 || posY < 0 || posX > 800 || posY > 800)) {
+            flights[i].remove();
+        } else {
+            posX += 2 * (Math.cos(degrees * Math.PI / 180));
+            posY += 2 * Math.sin(degrees * Math.PI / 180) * -1;
+            flights[i].style.top = posY + "px";
+            flights[i].style.left = posX + "px";
+        }
+    }
+
+    if (flights.length == 0 && document.getElementsByClassName("flight").length == 0) {
+        clearInterval(timerInterval);
+        clearInterval(animationInterval);
+        clearInterval(dataBlockInterval);
+    }
+}
+
+    // Keyboard input
+    function letterPress(letter) {
+        var input = document.getElementById("KeyboardInput");
+        input.value += letter;
+    }
+    
+    function backspace() {
+        var clear = document.getElementById("KeyboardInput").value;
+        document.getElementById("KeyboardInput").value = clear.substring(0, clear.length - 1);
+    }
+    
+    function clearInput(){
+        var input = document.getElementById("KeyboardInput");
+        input.value = "";
+        document.getElementById("invalidLabel").style.visibility = "hidden";
+    }
+
+    // Keyboard flight controls text-based
+    function updateHeading(flightId, heading) {
+        var flightDiv = document.getElementById(flightId);
+        flightDiv.setAttribute('data-heading', heading);
+    }
+    
+    function updateAltitude(flightId, altitude) {
+        var flightDiv = document.getElementById(flightId);
+        var altitudeDiv = flightDiv.querySelector('span[name="dbAltitude"]');
+    
+        altitudeDiv.innerText = altitude;
+        flightDiv.setAttribute('data-altitude', altitude);
+    }
+    
+    function updateGroundSpeed(flightId, groundSpeed) {
+        var flightDiv = document.getElementById(flightId);
+        var groundSpeedDiv = flightDiv.querySelector('span[name="dbGroundSpeed"]');
+    
+        groundSpeedDiv.innerText = groundSpeed;
+        flightDiv.setAttribute('data-groundSpeed', groundSpeed);
+    }
+    
+    function showFlightData(flightId) {
+        var flight = document.getElementById(flightId);
+    
+        document.getElementById("fsTailNumber").innerText = flightId;
+        document.getElementById("fsSquawk").innerText = flight.getAttribute("data-squawk");
+        document.getElementById("fsDepAirport").innerText = flight.getAttribute("data-depAirport");
+        document.getElementById("fsCompleteRoute").innerText = flight.getAttribute("data-depAirport") + "  FIX1  " + flight.getAttribute("data-destination");
+    
+        document.getElementById("fsAircraft").innerText = flight.getAttribute("data-aircraft");
+        document.getElementById("fsFlightPlanId").innerText = flight.getAttribute("data-flightPlanId");
+        document.getElementById("fsAltitude").innerText = flight.getAttribute("data-altitude");
+        document.getElementById("fsRemarks").innerText = "IFR TRAINING FLIGHT";
+    }
+    
+    function toggleDataBlock() {
+        var flights = document.getElementsByClassName("flight");
+    
+        for(var i = 0; i < flights.length; i++) {
+            var db1 = flights[i].querySelector('span[name="data-block-1"]');
+            var db2 = flights[i].querySelector('span[name="data-block-2"]');
+    
+            db1.classList.toggle("data-block-hidden");
+            db2.classList.toggle("data-block-hidden");
+        }
+    }
+    
+    // Used to enter commands 
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+     function parseInput() {
+        if(!animationInterval) return;
+    
+        document.getElementById("invalidLabel").style.visibility = "hidden";
+    
+        var input = document.getElementById("KeyboardInput").value;
+    
+        // [__][A___][V___][H___]
+        if(input.length != 14) {
+            document.getElementById("invalidLabel").style.visibility = "visible";
+            return; // Invalid input format
+        }
+        var tailNum = input.substring(0,2);
+        var commands = input.substring(2).match(/.{1,4}/g);
+    
+        var flight = document.querySelector(`.flight[name="${tailNum}"]`);
+    
+        for(var i = 0; i < commands.length; i++) {
+            var command = commands[i][0];
+    
+            if(!["A", "V", "H"].includes(command)) {
+                document.getElementById("invalidLabel").style.visibility = "visible";
+                return; // Invalid command found
+            }
+    
+            var value = commands[i].substring(1, 4);
+            switch(command) {
+                case "A":
+                    updateAltitude(flight.id, value);
+                    break;
+                case "V":
+                    updateGroundSpeed(flight.id, value);
+                    break;
+                case "H":
+                    updateHeading(flight.id, value);
+                    break;
+            }
+        }    
+        clearInput();
+     }    
+    function showLoadedFlights() {     }
+
+     function flightSearchFilter() {
+    
+     }
+
+
+
+     // Old speed commands
 var script = document.createElement('script');
 script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
 script.type = 'text/javascript';
@@ -25,320 +236,7 @@ var speed = 1500; //NOTE: Speed (variable shown right above refreshInterval() fu
 
 }
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-
- function myMove() { 
-  var elem = document.getElementById("animate");   
-  var pos = 240; 
-
-   function movediv()
-   {
-    if (pos == 170) { 
-      document.getElementById('animate').style.display='none';  
-    } 
-    else 
-    {
-      pos+=10;
-       elem.style.top = pos + "px"; 
-       elem.style.left = pos + "px"; ; 
-
-	  sleep(speed).then(() => {requestAnimationFrame(movediv)});
-    }
-  }	
-  requestAnimationFrame(movediv)
-}
-
-
-var id2=null;
- function myMove2() { 
-  var elem = document.getElementById("animate2");   
-  var pos2 = 220; 
-   function movediv(){
-    if (pos2 == 170) { 
-      document.getElementById('animate2').style.display='none';  
-    } else {
-	
-      pos2-=5;
-      elem.style.left = pos2 + "px"; 
-      sleep(speed).then(() => {
-	  requestAnimationFrame(movediv)
-
-	});
-
-
-    }
  
-  }	
-  requestAnimationFrame(movediv)
-}
-
-function myMove3() { 
-  var elem = document.getElementById("animate3");   
-  var pos3 = 446; 
-
-   function movediv()
-   {
-    if (pos3 == 166) { 
-      document.getElementById('animate3').style.display='none';  
-    } 
-    else 
-    {
-      pos3-=10;
-       elem.style.top = pos3 + "px"; 
-       elem.style.left = pos3 + "px"; ; 
-
-	  sleep(speed).then(() => {requestAnimationFrame(movediv)});
-    }
-  }	
-  requestAnimationFrame(movediv)
-}
-
-function myMove4() { 
-  var elem = document.getElementById("animate4");   
-  var pos4 = 566; 
-
-   function movediv()
-   {
-    if (pos4 == 166) { 
-      document.getElementById('animate4').style.display='none';  
-    } 
-    else 
-    {
-      pos4-=10;
-       elem.style.top = pos4 + "px"; 
-       elem.style.left = pos4 + "px"; ; 
-
-	  sleep(speed).then(() => {requestAnimationFrame(movediv)});
-    }
-  }	
-  requestAnimationFrame(movediv)
-}
-
-function myMove5() { 
-  var elem = document.getElementById("animate5");   
-  var pos5 = 320; 
-
-   function movediv()
-   {
-    if (pos5 == 330) { 
-      document.getElementById('animate5').style.display='none';  
-    } 
-    else 
-    {
-      pos5+=1;
-       elem.style.top = pos5 + "px"; 
-       elem.style.left = pos5 + "px"; ; 
-
-	  sleep(speed).then(() => {requestAnimationFrame(movediv)});
-    }
-  }	
-  requestAnimationFrame(movediv)
-}
-function myMove6() { 
-  var elem = document.getElementById("animate6");   
-  var pos6 = 680; 
-
-   function movediv()
-   {
-    if (pos6 == 650) { 
-      document.getElementById('animate6').style.display='none';  
-    } 
-    else 
-    {
-      pos6-=2;
-       elem.style.top = pos6 + "px"; 
-       elem.style.left = pos6 + "px"; ; 
-
-	  sleep(speed).then(() => {requestAnimationFrame(movediv)});
-    }
-  }	
-  requestAnimationFrame(movediv)
-}
-function myMove7() { 
-  var elem = document.getElementById("animate7");   
-  var pos7 = 350; 
-
-   function movediv()
-   {
-    if (pos7 == 300) { 
-      document.getElementById('animate7').style.display='none';  
-    } 
-    else 
-    {
-      pos7-=5;
-       elem.style.top = pos7 + "px"; 
-       elem.style.left = pos7 + "px"; ; 
-
-	  sleep(speed).then(() => {requestAnimationFrame(movediv)});
-    }
-  }	
-  requestAnimationFrame(movediv)
-}
-function myMove8() { 
-  var elem = document.getElementById("animate8");   
-  var pos8 = 588; 
-
-   function movediv()
-   {
-    if (pos8 == 488) { 
-      document.getElementById('animate8').style.display='none';  
-    } 
-    else 
-    {
-      pos8-=2;
-       elem.style.top = pos8 + "px"; 
-       elem.style.left = pos8 + "px"; ; 
-
-	  sleep(speed).then(() => {requestAnimationFrame(movediv)});
-    }
-  }	
-  requestAnimationFrame(movediv)
-}
-function myMove9() { 
-  var elem = document.getElementById("animate9");   
-  var pos9 = 466; 
-
-   function movediv()
-   {
-    if (pos9 == 566) { 
-      document.getElementById('animate9').style.display='none';  
-    } 
-    else 
-    {
-      pos9+=20;
-       elem.style.top = pos9 + "px"; 
-       elem.style.left = pos9 + "px"; ; 
-
-	  sleep(speed).then(() => {requestAnimationFrame(movediv)});
-    }
-  }	
-  requestAnimationFrame(movediv)
-}
-function myMove10() { 
-  var elem = document.getElementById("animate10");   
-  var pos10 = 166; 
-
-   function movediv()
-   {
-    if (pos10 == 86) { 
-      document.getElementById('animate10').style.display='none';  
-    } 
-    else 
-    {
-      pos10-=20;
-       elem.style.top = pos10 + "px"; 
-       elem.style.left = pos10 + "px"; ; 
-
-	  sleep(speed).then(() => {requestAnimationFrame(movediv)});
-    }
-  }	
-  requestAnimationFrame(movediv)
-}
-function myMove11() { 
-  var elem = document.getElementById("animate11");   
-  var pos11 = 420; 
-
-   function movediv()
-   {
-    if (pos11 == 500) { 
-      document.getElementById('animate11').style.display='none';  
-    } 
-    else 
-    {
-      pos11 +=10;
-       elem.style.top = pos11 + "px"; 
-       elem.style.left = pos11 + "px"; ; 
-
-	  sleep(speed).then(() => {requestAnimationFrame(movediv)});
-    }
-  }	
-  requestAnimationFrame(movediv)
-}
-
-function myMove12() { 
-  var elem = document.getElementById("animate12");   
-  var pos12 = 60; 
-
-   function movediv()
-   {
-    if (pos12 == 320) { 
-      document.getElementById('animate12').style.display='none';  
-    } 
-    else 
-    {
-      pos12 +=20;
-       elem.style.top = pos12 + "px"; 
-       elem.style.left = pos12 + "px"; ; 
-
-	  sleep(speed).then(() => {requestAnimationFrame(movediv)});
-    }
-  }	
-  requestAnimationFrame(movediv)
-}
-function myMove13() { 
-  var elem = document.getElementById("animate13");   
-  var pos13 = 260; 
-
-   function movediv()
-   {
-    if (pos13 == 10) { 
-      document.getElementById('animate13').style.display='none';  
-    } 
-    else 
-    {
-      pos13 -=10;
-       elem.style.top = pos13 + "px"; 
-       elem.style.left = pos13 + "px"; ; 
-
-	  sleep(speed).then(() => {requestAnimationFrame(movediv)});
-    }
-  }	
-  requestAnimationFrame(movediv)
-}
-function myMove14() { 
-  var elem = document.getElementById("animate14");   
-  var pos14 = 460; 
-
-   function movediv()
-   {
-    if (pos14 == 5) { 
-      document.getElementById('animate14').style.display='none';  
-    } 
-    else 
-    {
-      pos14 -=10;
-       elem.style.top = pos14 + "px"; 
-       elem.style.left = pos14 + "px"; ; 
-
-	  sleep(speed).then(() => {requestAnimationFrame(movediv)});
-    }
-  }	
-  requestAnimationFrame(movediv)
-}
-function myMove15() { 
-  var elem = document.getElementById("animate15");   
-  var pos15 = 360; 
-
-   function movediv()
-   {
-    if (pos15 == 0) { 
-      document.getElementById('animate15').style.display='none';  
-    } 
-    else 
-    {
-      pos15 -=15;
-       elem.style.top = pos15 + "px"; 
-       elem.style.left = pos15 + "px"; ; 
-
-	  sleep(speed).then(() => {requestAnimationFrame(movediv)});
-    }
-  }	
-  requestAnimationFrame(movediv)
-}
-
  function stopAnim(){
   document.getElementById('animate').style.display='none';
   document.getElementById('animate2').style.display='none';

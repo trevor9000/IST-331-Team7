@@ -42,6 +42,108 @@ html, body {
 .auto-style5 {
 	margin-left: 0;
 }
+	.space{
+        width: 200px;
+        border-radius: 10px;
+        margin: 0px 0px 0px 0px;
+        background-color: yellow;
+    }
+    .backspace{
+        width: 100px;
+        border-radius: 10px;
+        margin: 10px 10px 10px 10px;
+        background-color: yellow;
+    }
+    .enter{
+        width: 100px;
+        border-radius: 10px;
+        margin: 0px 0px 0px 0px;
+        background-color: red;
+    }
+    .clear{
+        width: 100px;
+        border-radius: 10px;
+        margin: 10px 10px 10px 10px;
+        background-color: yellow;
+    }
+    .btn{
+        margin: 5px 6px;
+        width: 40px;
+        height: 40px;
+        background-color: aliceblue;    
+    }
+	.num{
+        margin: 5px 6px;
+        width: 40px;
+        height: 40px;
+        background-color: lightblue;
+    
+    }
+	.Zero {
+        margin: 5px 6px;
+        width: 40px;
+        height: 40px;
+    
+        margin-left: 174px;
+        background-color: lightblue;
+    }
+	.Special2{
+        margin: 5px 6px;
+        width: 40px;
+        height: 40px;
+        background-color: rgb(16, 219, 16);
+        font-size: 10px;
+        text-align: center;
+        margin-right: 10px;
+    }
+    .Special3 {
+        margin: 5px 6px;
+        width: 40px;
+        height: 40px;
+        background-color: yellow;
+        font-size: 10px;
+        text-align: center;
+        margin-right: 10px;
+    }
+	.row {
+        display: flex;
+    }
+	div.flight {
+        background-color: transparent;
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        color: white;
+        font-family: sans-serif;
+        font-size: 12px;
+    }
+	table {
+		border: solid 2px black;
+	}
+	.container{
+	box-sizing: border-box;
+	background-color: wheat;
+}  
+	table.th {
+		padding: 5px;
+	}
+	div.KeyboardInput{
+		width: 400px;
+	}
+	div.flightsearch{
+		border: solid 1px black;
+		padding: 15px 15px;
+		display: inline-block;
+	}
+	.data-block-hidden {
+        position: absolute;
+        top: -100px;
+        visibility: hidden;
+    }
+    .flight-not-ready {
+        visibility: hidden;
+    }
+		
 </style>
 </head>
 <style type="">
@@ -52,366 +154,396 @@ html, body {
   position: relative;
   background: black;
 }
-
-#animate {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  background: url(flight_img.png);
-}
-
-#animate2 {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  background:url(flight_img.png);
-}
-
-#animate3 {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  background:url(flight_img.png);
-}
-
-#animate4 {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  background:url(flight_img.png);
-}
-
-#animate5 {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  background:url(flight_img.png);
-}
-
-#animate6 {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  background: url(flight_img.png);
-}
-
-#animate7 {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  background:url(flight_img.png);
-}
-
-#animate8 {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  background:url(flight_img.png);
-}
-
-#animate9 {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  background:url(flight_img.png);
-}
-
-#animate10 {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  background:url(flight_img.png);
-}
-#animate11 {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  background: url(flight_img.png);
-}
-
-#animate12 {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  background:url(flight_img.png);
-}
-
-#animate13 {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  background:url(flight_img.png);
-}
-
-#animate14 {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  background:url(flight_img.png);
-}
-
-#animate15 {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  background:url(flight_img.png);
-}
-
-
 .newStyle1 {
 	background-color: #000000;
 	font-family: Arial;
 	font-size: 24px;
 }
-
 .auto-style1 {
 	margin-left: 250;
 }
 .container{
 	box-sizing: border-box;
 	background-color: wheat;
-}
+}    
 </style>
 
-
-<body
-	style="background-color: #7E7E7E;">
+<body style="background-color: #7E7E7E;">
 	<h2 style="color: #FFFFFF">Simfast Simulator</h2>
 <p>&nbsp;</p> 
-	<div id="layer1" class="auto-style1"
-		style="position: absolute; left: 650px; top: 150px; width: 478px; height: 400px; z-index: 1; float: right">
-		<ul id="keyboard0">
-			<li class="symbol">
-				
-				<div>
-					<textarea id="write" name="S1"
-						style="height: 300px; width: 465px; font-size: 12px; font-family: Arial;"
-						cols="" rows=""></textarea>
-				</div> &nbsp;
-				<div class="container" style="width: 470px; height: 350px; position: absolute; top: 350px; left: 0px;">
-				<ul id="keyboard">
-
-					<li class="letter">A</li>
-					<li class="letter">B</li>
-					<li class="letter">C</li>
-					<li class="letter">D</li>
-					<li class="letter">E</li>
-					<li class="letter">F</li>
-					<li class="letter">G</li>
-					<li class="number">1</li>
-					<li class="number">2</li>
-					<li class="number">3</li>
-
-					<li class="letter">H</li>
-					<li class="letter">I</li>
-					<li class="letter">J</li>
-					<li class="letter">K</li>
-					<li class="letter">L</li>
-					<li class="letter">M</li>
-					<li class="letter">N</li>
-					<li class="number">4</li>
-					<li class="number">5</li>
-					<li class="number">6</li>
-
-					<li class="letter">O</li>
-					<li class="letter">P</li>
-					<li class="letter">Q</li>
-					<li class="letter">R</li>
-					<li class="letter">S</li>
-					<li class="letter">T</li>
-					<li class="letter">U</li>
-					<li class="number">7</li>
-					<li class="number">8</li>
-					<li class="number">9</li>
-
-					<li class="letter">V</li>
-					<li class="letter">W</li>
-					<li class="letter">X</li>
-					<li class="letter">Y</li>
-					<li class="letter">Z</li>
-					<li class="letter">*</li>
-					<li class="letter">/</li>
-					<li class="letter">+</li>
-					<li class="number">0</li>
-					<li class="letter">-</li>
-
-					<li class="clear">CLEAR</li>
-					<li class="delete lastitem">BACK<br />SPACE</li>
-					<li class="space">
-						&nbsp;
-					</li>
-					<li class="return lastitem">ENTER</li>
-				
-				</ul></div> <span class="on">+</span>
-				
-			</li>
-
-		</ul>
+<div class="KeyboardInput" style="position: absolute; top: 324px; left: 810px;">
+	<input name="KeyboardInput" id="KeyboardInput"  style="width: 200px;" type="text">
+	<label id="invalidLabel" style="visibility: hidden; color: red; position: absolute; top: 2px; left: 225px;">Invalid Input</label>
+</div>
+<div class="container" style="width: 570px; height: 450px; position: absolute; top: 350px; left: 810px;">
+	<div class="row">
+		<button class="Special2">M1</button>
+		<button class="Special2">M2</button>
+		<button class="Special2">M3</button>
+		<button class="Special2">M4</button>
+		<button class="Special2">CON</button>
+		<button class="Special2">MAP</button>
+		<button class="Special2">M5</button>
+		<button class="Special2">M6</button>
+		<button class="Special2">M7</button>
+		<button class="Special2">M8</button>
 	</div>
+	<div class="row">
+		<button class="Special2">M9</button>
+		<button class="Special2">M10</button>
+		<button class="Special2">M11</button>
+		<button class="Special2">M12</button>
+		<button class="Special2">TRK</button>
+		<button class="Special2">USR</button>
+		<button class="Special2">M13</button>
+		<button class="Special2">M14</button>
+		<button class="Special2">M15</button>
+		<button class="Special2">M16</button>
+	</div>
+	<div>
+		<button class="clear" onclick="clearInput()">CLEAR</button>
+		<button class="backspace" onclick="backspace()">BACKSPACE</button>
+		<button class="space" onclick="letterPress(' ')">SPACE</button>
+		<button class="enter" onclick="parseInput()">ENTER</button>
+	</div>
+	<div class="row">
+		<button class="Special2">INIT CTRL</button>
+		<button class="Special2">TRK RPOS</button>
+		<button class="Special2">TRK SUSP</button>
+		<button class="Special2">TEAM CTRL</button>
+		<button class="Special2">HND Off</button>
+		<button class="Special2">FLT Data</button>
+		<button class="Special2">MULTI FUNC</button>
+		<button class="Special2">F8</button>
+		<button class="Special3">/\</button>
+		<button class="Special3">.</button>
+	</div>
+	<div class="row">
+		<button class="Special2">F9</button>
+		<button class="Special2">F10</button>
+		<button class="Special2">CA</button>
+		<button class="Special2">F12</button>
+		<button class="Special2">F13</button>
+		<button class="Special2">F14</button>
+		<button class="Special2">TGT Gen</button>
+		<button class="Special2">F16</button>
+		<button class="Special3">IFR +</button>
+		<button class="Special3">VFR /</button>
+	</div>
+	<div>
+		<button class="btn" onclick="letterPress('A')">A</button>
+		<button class="btn" onclick="letterPress('B')">B</button>
+		<button class="btn" onclick="letterPress('C')">C</button>
+		<button class="btn" onclick="letterPress('D')">D</button>
+		<button class="btn" onclick="letterPress('E')">E</button>
+		<button class="btn" onclick="letterPress('F')">F</button>
+		<button class="btn" onclick="letterPress('G')">G</button>
+		<button class="num" onclick="letterPress('1')">1</button>
+		<button class="num" onclick="letterPress('2')">2</button>
+		<button class="num" onclick="letterPress('3')">3</button>
+	</div>
+	<div>
+		<button class="btn" onclick="letterPress('H')">H</button>
+		<button class="btn" onclick="letterPress('I')">I</button>
+		<button class="btn" onclick="letterPress('J')">J</button>
+		<button class="btn" onclick="letterPress('K')">K</button>
+		<button class="btn" onclick="letterPress('L')">L</button>
+		<button class="btn" onclick="letterPress('M')">M</button>
+		<button class="btn" onclick="letterPress('N')">N</button>
+		<button class="num" onclick="letterPress('4')">4</button>
+		<button class="num" onclick="letterPress('5')">5</button>
+		<button class="num" onclick="letterPress('6')">6</button>
+	</div>
+	<div>
+		<button class="btn" onclick="letterPress('O')">O</button>
+		<button class="btn" onclick="letterPress('P')">P</button>
+		<button class="btn" onclick="letterPress('Q')">Q</button>
+		<button class="btn" onclick="letterPress('R')">R</button>
+		<button class="btn" onclick="letterPress('S')">S</button>
+		<button class="btn" onclick="letterPress('T')">T</button>
+		<button class="btn" onclick="letterPress('U')">U</button>
+		<button class="num" onclick="letterPress('7')">7</button>
+		<button class="num" onclick="letterPress('8')">8</button>
+		<button class="num" onclick="letterPress('9')">9</button>
+	</div>
+	<div>
+		<button class="btn" onclick="letterPress('V')">V</button>
+		<button class="btn" onclick="letterPress('W')">W</button>
+		<button class="btn" onclick="letterPress('X')">X</button>
+		<button class="btn" onclick="letterPress('Y')">Y</button>
+		<button class="btn" onclick="letterPress('Z')">Z</button>
+
+		<button class="Zero" onclick="letterPress('0')">0</button>
+	</div>
+</div>
+</body>
+<body>
 	<p>
 		&nbsp;
-	</p>
+	</p>  
 
-	  <div id="layer5" style="position: absolute; width: 72px; height: 47px; z-index: 3; left: 1400px; top: 152px">
-		  <button onclick="changeAltitude();" class="auto-style5" name="Enter" style="width: 69px; height: 35px">
-		  Enter</button></div>
-  <div id ="animate" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 76px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-	  <p class="auto-style3" style="width: 73px">AE3049</p>
-	  <p id = "AE3049" class="auto-style3" style="width: 73px">033 11PF</p>
-	  <p class="auto-style3" style="width: 73px">ACY *B763</p>
-	</div>
-	
-	<div id ="animate2" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 240px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-	  <p  class="auto-style3" style="width: 73px">MN9124</p>
-	  <p id = "MN9124" class="auto-style3" style="width: 73px">026 11PF</p>
-	  <p class="auto-style3" style="width: 73px">PHL *B762</p>	  
-	</div>   
+</div>
 
-	<div id ="animate3" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 240px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-		<p  class="auto-style3" style="width: 73px">LO2315</p>
-		<p id = "LO2315" class="auto-style3" style="width: 73px">026 11PF</p>
-		<p class="auto-style3" style="width: 73px">PHL *B762</p>	  
-	  </div>
-	  
-	  <div id ="animate4" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 76px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-		<p class="auto-style3" style="width: 73px">RE1321</p>
-		<p id = "RE1321" class="auto-style3" style="width: 73px">033 11PF</p>
-		<p class="auto-style3" style="width: 73px">ACY *B763</p>
-	  </div>
-	  <div id ="animate5" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 76px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-		<p class="auto-style3" style="width: 73px">RS6653</p>
-		<p id = "RS6653" class="auto-style3" style="width: 73px">033 11PF</p>
-		<p class="auto-style3" style="width: 73px">ACY *B763</p>
-	  </div>
-	  <div id ="animate6" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 76px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-		<p class="auto-style3" style="width: 73px">IR4312</p>
-		<p id = "IR4312" class="auto-style3" style="width: 73px">033 11PF</p>
-		<p class="auto-style3" style="width: 73px">ACY *B763</p>
-	  </div>
-	  <div id ="animate7" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 76px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-		<p class="auto-style3" style="width: 73px">UT8890</p>
-		<p id = "UT8890" class="auto-style3" style="width: 73px">033 11PF</p>
-		<p class="auto-style3" style="width: 73px">ACY *B763</p>
-	  </div>
-	  <div id ="animate8" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 76px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-		<p class="auto-style3" style="width: 73px">WE6053</p>
-		<p id = "WE6053" class="auto-style3" style="width: 73px">033 11PF</p>
-		<p class="auto-style3" style="width: 73px">ACY *B763</p>
-	  </div>
-	  <div id ="animate9" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 76px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-		<p class="auto-style3" style="width: 73px">HI3332</p>
-		<p id = "HI3332" class="auto-style3" style="width: 73px">033 11PF</p>
-		<p class="auto-style3" style="width: 73px">ACY *B763</p>
-	  </div>
-	  <div id ="animate10" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 76px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-		<p class="auto-style3" style="width: 73px">AB5432</p>
-		<p id = "AB5432" class="auto-style3" style="width: 73px">033 11PF</p>
-		<p class="auto-style3" style="width: 73px">ACY *B763</p>
-	  </div>
-	  <div id ="animate11" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 76px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-		<p class="auto-style3" style="width: 73px">KL7252</p>
-		<p id = "KL7252" class="auto-style3" style="width: 73px">033 11PF</p>
-		<p class="auto-style3" style="width: 73px">ACY *B763</p>
-	  </div>
-	  <div id ="animate12" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 76px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-		<p class="auto-style3" style="width: 73px">PA9417</p>
-		<p id = "PA9417" class="auto-style3" style="width: 73px">033 11PF</p>
-		<p class="auto-style3" style="width: 73px">ACY *B763</p>
-	  </div>
-	  <div id ="animate13" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 76px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-		<p class="auto-style3" style="width: 73px">HX7642</p>
-		<p id = "HX7642" class="auto-style3" style="width: 73px">033 11PF</p>
-		<p class="auto-style3" style="width: 73px">ACY *B763</p>
-	  </div>
-	  <div id ="animate14" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 76px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-		<p class="auto-style3" style="width: 73px">JX3357</p>
-		<p id = "JX3357" class="auto-style3" style="width: 73px">033 11PF</p>
-		<p class="auto-style3" style="width: 73px">ACY *B763</p>
-	  </div>
-	  <div id ="animate15" style="font: normal normal normal 100% serif; z-index: 1; left: 50px; top: 76px; width: 15px; height: 15px; background-size: 13px; text-align: right; color: #00FF00; text-decoration: blink;">
-		<p class="auto-style3" style="width: 73px">KL1196</p>
-		<p id = "KL1196" class="auto-style3" style="width: 73px">033 11PF</p>
-		<p class="auto-style3" style="width: 73px">ACY *B763</p>
-	  </div>
+<body style="margin: 0px;">
+    <div id="scope" style="background-color: Black; height: 800px; width: 800px;"></div>
+    <div id="phl" style="background-color: rgb(118, 116, 116); color: white; font-family: sans-serif; font-size: 14px; text-align: center; line-height: 14px;  position: absolute; top: 530px; left: 310px; width: 14px; height: 14px;">X</div>
 
-	  
+                <div id="N536SP" class="flight flight-not-ready" data-startTime="0"
+         data-heading="270" data-altitude="020"
+         data-groundSpeed="011" data-destination="RSW"
+         data-aircraft="B787" data-endPhl="false"
+         data-depAirport="BWI" data-squawk="536S"
+         data-flightPlanId="173"
+         style="top: 0; left: 400;" onclick="showFlightData('N536SP')"
+         name="SP">
+        V
+        <div style="position: relative; top: -40px; left: 18px; font-size: 10px; display: block; width: 100px; color: white;">
+            <span>N536SP</span><br/>
+            <span name="data-block-1">
+                <span name="dbAltitude">020</span>&nbsp;&nbsp;<span name="dbGroundSpeed">011</span>
+            </span>
+            <span name="data-block-2" class="data-block-hidden">
+                <span name="dbDestination">RSW</span>&nbsp;&nbsp;<span name="dbAircraft">B787</span>
+            </span>
+        </div>
+    </div>
+                <div id="UPS2196" class="flight flight-not-ready" data-startTime="5000"
+         data-heading="000" data-altitude="015"
+         data-groundSpeed="011" data-destination="PHL"
+         data-aircraft="B763" data-endPhl="true"
+         data-depAirport="PIT" data-squawk="2196"
+         data-flightPlanId="594"
+         style="top: 530; left: 0;" onclick="showFlightData('UPS2196')"
+         name="96">
+        V
+        <div style="position: relative; top: -40px; left: 18px; font-size: 10px; display: block; width: 100px; color: white;">
+            <span>UPS2196</span><br/>
+            <span name="data-block-1">
+                <span name="dbAltitude">015</span>&nbsp;&nbsp;<span name="dbGroundSpeed">011</span>
+            </span>
+            <span name="data-block-2" class="data-block-hidden">
+                <span name="dbDestination">PHL</span>&nbsp;&nbsp;<span name="dbAircraft">B763</span>
+            </span>
+        </div>
+    </div>
+                <div id="DAL4376" class="flight flight-not-ready" data-startTime="5000"
+         data-heading="090" data-altitude="010"
+         data-groundSpeed="008" data-destination="EWR"
+         data-aircraft="C172" data-endPhl="false"
+         data-depAirport="PHL" data-squawk="4376"
+         data-flightPlanId="721"
+         style="top: 530; left: 310;" onclick="showFlightData('DAL4376')"
+         name="76">
+        V
+        <div style="position: relative; top: -40px; left: 18px; font-size: 10px; display: block; width: 100px; color: white;">
+            <span>DAL4376</span><br/>
+            <span name="data-block-1">
+                <span name="dbAltitude">010</span>&nbsp;&nbsp;<span name="dbGroundSpeed">008</span>
+            </span>
+            <span name="data-block-2" class="data-block-hidden">
+                <span name="dbDestination">EWR</span>&nbsp;&nbsp;<span name="dbAircraft">C172</span>
+            </span>
+        </div>
+    </div>
+                <div id="UPS1648" class="flight flight-not-ready" data-startTime="7500"
+         data-heading="238" data-altitude="020"
+         data-groundSpeed="011" data-destination="PHL"
+         data-aircraft="B763" data-endPhl="true"
+         data-depAirport="BOS" data-squawk="1648"
+         data-flightPlanId="651"
+         style="top: 0; left: 650;" onclick="showFlightData('UPS1648')"
+         name="48">
+        V
+        <div style="position: relative; top: -40px; left: 18px; font-size: 10px; display: block; width: 100px; color: white;">
+            <span>UPS1648</span><br/>
+            <span name="data-block-1">
+                <span name="dbAltitude">020</span>&nbsp;&nbsp;<span name="dbGroundSpeed">011</span>
+            </span>
+            <span name="data-block-2" class="data-block-hidden">
+                <span name="dbDestination">PHL</span>&nbsp;&nbsp;<span name="dbAircraft">B763</span>
+            </span>
+        </div>
+    </div>
+                <div id="AAL785S" class="flight flight-not-ready" data-startTime="9000"
+         data-heading="180" data-altitude="040"
+         data-groundSpeed="011" data-destination="LAX"
+         data-aircraft="B737" data-endPhl="false"
+         data-depAirport="ACY" data-squawk="785S"
+         data-flightPlanId="880"
+         style="top: 600; left: 800;" onclick="showFlightData('AAL785S')"
+         name="5S">
+        V
+        <div style="position: relative; top: -40px; left: 18px; font-size: 10px; display: block; width: 100px; color: white;">
+            <span>AAL785S</span><br/>
+            <span name="data-block-1">
+                <span name="dbAltitude">040</span>&nbsp;&nbsp;<span name="dbGroundSpeed">011</span>
+            </span>
+            <span name="data-block-2" class="data-block-hidden">
+                <span name="dbDestination">LAX</span>&nbsp;&nbsp;<span name="dbAircraft">B737</span>
+            </span>
+        </div>
+    </div>
+                <div id="DAL4587" class="flight flight-not-ready" data-startTime="25000"
+         data-heading="084" data-altitude="016"
+         data-groundSpeed="015" data-destination="JFK"
+         data-aircraft="B737" data-endPhl="false"
+         data-depAirport="PHL" data-squawk="4587"
+         data-flightPlanId="875"
+         style="top: 530; left: 310;" onclick="showFlightData('DAL4587')"
+         name="87">
+        V
+        <div style="position: relative; top: -40px; left: 18px; font-size: 10px; display: block; width: 100px; color: white;">
+            <span>DAL4587</span><br/>
+            <span name="data-block-1">
+                <span name="dbAltitude">016</span>&nbsp;&nbsp;<span name="dbGroundSpeed">015</span>
+            </span>
+            <span name="data-block-2" class="data-block-hidden">
+                <span name="dbDestination">JFK</span>&nbsp;&nbsp;<span name="dbAircraft">B737</span>
+            </span>
+        </div>
+    </div>
+                <div id="DAL3051" class="flight flight-not-ready" data-startTime="42500"
+         data-heading="220" data-altitude="015"
+         data-groundSpeed="014" data-destination="IAH"
+         data-aircraft="B787" data-endPhl="false"
+         data-depAirport="PHL" data-squawk="4376"
+         data-flightPlanId="721"
+         style="top: 530; left: 310;" onclick="showFlightData('DAL3051')"
+         name="51">
+        V
+        <div style="position: relative; top: -40px; left: 18px; font-size: 10px; display: block; width: 100px; color: white;">
+            <span>DAL3051</span><br/>
+            <span name="data-block-1">
+                <span name="dbAltitude">015</span>&nbsp;&nbsp;<span name="dbGroundSpeed">014</span>
+            </span>
+            <span name="data-block-2" class="data-block-hidden">
+                <span name="dbDestination">IAH</span>&nbsp;&nbsp;<span name="dbAircraft">B787</span>
+            </span>
+        </div>
+    </div>
+                <div id="AAL7165" class="flight flight-not-ready" data-startTime="50000"
+         data-heading="270" data-altitude="013"
+         data-groundSpeed="011" data-destination="MIA"
+         data-aircraft="C172" data-endPhl="false"
+         data-depAirport="BOS" data-squawk="7165"
+         data-flightPlanId="519"
+         style="top: 0; left: 500;" onclick="showFlightData('AAL7165')"
+         name="65">
+        V
+        <div style="position: relative; top: -40px; left: 18px; font-size: 10px; display: block; width: 100px; color: white;">
+            <span>AAL7165</span><br/>
+            <span name="data-block-1">
+                <span name="dbAltitude">013</span>&nbsp;&nbsp;<span name="dbGroundSpeed">011</span>
+            </span>
+            <span name="data-block-2" class="data-block-hidden">
+                <span name="dbDestination">MIA</span>&nbsp;&nbsp;<span name="dbAircraft">C172</span>
+            </span>
+        </div>
+    </div>
+    </body>
+
+<div style="width: 600px; height: 70px; top: 35px; left: 810px; position: absolute; ">
+    <table border="1" cellspacing="0px" cellpadding="1px" width="85%" style="font-family: sans-serif;">
+        <tr>
+            <td id="fsTailNumber" style="height: 22px; width: 100px;"></td>
+            <td id="fsSquawk" style="width: 110px;"></td>
+            <td id="fsDepAirport" style="border-bottom: none;"></td>
+            <td id="fsCompleteRoute" style="width: 198px; border-bottom: none;"></td>
+        </tr>
+        <tr>
+            <td id="fsAircraft"></td>
+            <td id="fsProposedTime"></td>
+            <td style="border-top: none;  border-bottom: none; width: 80px;">&nbsp;</td>
+            <td style="border-top: none;"></td>
+        </tr>
+        <tr>
+            <td id="fsFlightPlanId" style="height: 22px;"></td>
+            <td id="fsAltitude"></td>
+            <td style="border-top: none;"></td>
+            <td id="fsRemarks"></td>
+        </tr>
+    </table>
+</div>
+<div class="flightsearch" style="height: 170px; position: absolute; top: 115px; left: 810px; font-family: sans-serif; overflow-y: auto;">
+        <table>
+            <thead>
+                <th style="padding-right: 5px;">Call Sign</th>
+                <th style="padding-right: 5px;">Flight Plan Id</th>
+                <th style="padding-right: 5px;">Dep. Airport</th>
+                <th style="padding-right: 5px;">Destination</th>
+            </thead>
+                        <tr id="list_N536SP" onclick="showFlightData('N536SP')">
+                <td>N536SP</td>
+                <td style="text-align: center;">173</td>
+                <td style="text-align: center;">BWI</td>
+                <td style="text-align: center;">RSW</td>
+            </tr>
+                        <tr id="list_UPS2196" onclick="showFlightData('UPS2196')">
+                <td>UPS2196</td>
+                <td style="text-align: center;">594</td>
+                <td style="text-align: center;">PIT</td>
+                <td style="text-align: center;">PHL</td>
+            </tr>
+                        <tr id="list_DAL4376" onclick="showFlightData('DAL4376')">
+                <td>DAL4376</td>
+                <td style="text-align: center;">721</td>
+                <td style="text-align: center;">PHL</td>
+                <td style="text-align: center;">EWR</td>
+            </tr>
+                        <tr id="list_UPS1648" onclick="showFlightData('UPS1648')">
+                <td>UPS1648</td>
+                <td style="text-align: center;">651</td>
+                <td style="text-align: center;">BOS</td>
+                <td style="text-align: center;">PHL</td>
+            </tr>
+                        <tr id="list_AAL785S" onclick="showFlightData('AAL785S')">
+                <td>AAL785S</td>
+                <td style="text-align: center;">880</td>
+                <td style="text-align: center;">ACY</td>
+                <td style="text-align: center;">LAX</td>
+            </tr>
+                        <tr id="list_DAL4587" onclick="showFlightData('DAL4587')">
+                <td>DAL4587</td>
+                <td style="text-align: center;">875</td>
+                <td style="text-align: center;">PHL</td>
+                <td style="text-align: center;">JFK</td>
+            </tr>
+                        <tr id="list_DAL3051" onclick="showFlightData('DAL3051')">
+                <td>DAL3051</td>
+                <td style="text-align: center;">721</td>
+                <td style="text-align: center;">PHL</td>
+                <td style="text-align: center;">IAH</td>
+            </tr>
+                        <tr id="list_AAL7165" onclick="showFlightData('AAL7165')">
+                <td>AAL7165</td>
+                <td style="text-align: center;">519</td>
+                <td style="text-align: center;">BOS</td>
+                <td style="text-align: center;">MIA</td>
+            </tr>
+                    </table>
+
+</div>
 
 
 	<div id="map" style="width: 750px; height: 800px">
 	</div>
 
-	<img height="100" src="flight_strip.jpg" style="width:750px;" />&nbsp;
-    <script>
-        const map = new mapboxgl.Map({
-            container: 'map',
-            style: carto.basemaps.darkmatter,
-            center: [-75.15,39.97], 
-            zoom: 11,
-            scrollZoom: false
-        });
-
-        const nav = new mapboxgl.NavigationControl();
-        map.addControl(nav, 'top-left');
-        map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
-
-        carto.setDefaultAuth({
-            username: 'cartovl',
-            apiKey: 'default_public'
-        });
-
-
-    </script>
-
 	<form method="post">
 	</form>
-	<div id="layer2" style="position: absolute; width: 202px; height: 80px; z-index: 2; left: 900px; top: 61px; color: #FFFFFF">
-		Animation Controls<select name="Select2" style="width: 184px">
-		<option>Play</option>
-		<option>Stop</option>
-		<option>2x</option>
-		<option>4x</option>
-		</select><button onclick="myMove(); myMove2(); myMove3(); myMove4(); myMove5(); myMove6(); myMove7(); myMove8(); myMove9(); myMove10(); myMove11(); myMove12(); myMove13(); myMove14(); myMove15();">Play</button>
-		<button onclick="stopAnim()">
-		Stop</button></div>
 		
+		<div style="position: absolute; top: 5px; left: 810px; ">
+			<span style="border: 1px solid black; padding: 1px 4px 1px 4px;" id="timer"><label id="hours">00</label>:<label id="minutes">00</label>:<label id="seconds">00</label></span>
+			<select id="rate" onchange="changeRate()">
+				<option value="1">1x</option>
+				<option value="2">2x</option>
+				<option value="4">4x</option>
+				<option value="10">10x</option>
+			</select>
+		
+			<button onclick="startSimulation()">Start Simulation</button>
+			<button onclick="resetSimulation()">Reset Simulation</button> <!--- Reloads web page-->
+		</div>		
 
-	<div id="layer3" style="position: absolute; width: 220px; height: 80px; z-index: 2; left: 1100px; top: 61px; color: #FFFFFF">
-		Flight Information<select name="Select3" style="width: 184px">
-		<option>AE3049</option>
-		<option>MN9124</option>
-		<option>LO2315</option>
-		<option>RE1321</option>
-		<option>RS6653</option>
-		<option>IR4312</option>
-		<option>UT8890</option>
-		<option>WE6053</option>
-		<option>HI3332</option>
-		<option>AB5432</option>
-		<option>KL7252</option>
-		<option>PA9417</option>
-		<option>HX7642</option>
-		<option>JX3357</option>
-		<option>KL1196</option>
-		</select></div> 
-		
-	<div id="layer4" style="position: absolute; width: 245px; height: 82px; z-index: 2; left: 1300px; top: 61px; color: #FFFFFF">
-		Scope Location<select name="Select4" style="width: 184px" class="auto-style4">
-		<option>PHL</option>
-		<option>NYC</option>
-		<option>NWK</option>
-		<option>JFK</option>
-		<option>TTN</option>
-		<option>LGA</option>
-		<option>DAL</option>
-		<option>LAX</option>
-		</select></div>
-		
-
-	<div id="layer4" style="position: absolute; width: 202px; height: 82px; z-index: 2; left: 1500px; top: 61px; color: #FFFFFF">
-		Timer<select name="Select4" style="width: 182px" class="auto-style4">
-		<option>Start</option>
-		<option>Stop</option>
-		</select><button onclick="Timer()">Start</button>
 	<p>&nbsp;</p>
 
 	</body>
